@@ -1,0 +1,56 @@
+
+// Fonts
+@import "font.scss";
+
+
+@import '../../../node_modules/animate.css/animate';
+.animated {
+  animation-duration: .377s;
+}
+
+//Bulma
+@import "utilities/_all";
+@import "base/_all";
+@import "elements/_all";
+@import "components/_all";
+@import "grid/_all";
+@import "layout/_all";
+
+@import 'wysiwyg';
+
+@import 'font-awesome/font-awesome';
+
+.app {
+  padding: 20px;
+}
+.app-nav {
+  box-shadow: 0 2px 3px rgba(17, 17, 17, 0.1), 0 0 0 1px rgba(17, 17, 17, 0.1);
+}
+.nprogress-container {
+  position: fixed !important;
+  width: 100%;
+  height: 50px;
+  z-index: 2048;
+  pointer-events: none;
+
+  #nprogress {
+    $color: $green;
+
+    .bar {
+      background: $color;
+    }
+    .peg {
+      box-shadow: 0 0 10px $color, 0 0 5px $color;
+    }
+
+    .spinner-icon {
+      border-top-color: $color;
+      border-left-color: $color;
+    }
+  }
+}
+
+
+
+
+
