@@ -5,6 +5,7 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "animate.css": "^3.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "bootstrap-sass": "^3.3.7",
@@ -32,6 +33,7 @@
     "vue-loader": "^10.0.0",
     "vue-nprogress": "^0.1.2",
     "vue-resource": "^1.0.3",
+    "vue-strap": "1.1.29",
     "vue-style-loader": "^1.0.0"
   }
 }

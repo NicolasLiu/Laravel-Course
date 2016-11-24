@@ -128,3 +128,55 @@ $size-huge: $size-1 !default
 $colors: (white: ($white, $black), black: ($black, $white), light: ($light, $light-invert), dark: ($dark, $dark-invert), primary: ($primary, $primary-invert), info: ($info, $info-invert), success: ($success, $success-invert), warning: ($warning, $warning-invert), danger: ($danger, $danger-invert)) !default
 
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 !default
+
+//Carousel
+
+$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6) !default
+
+$carousel-control-color:                      $white !default
+$carousel-control-width:                      15% !default
+$carousel-control-opacity:                    .5 !default
+$carousel-control-font-size:                  20px !default
+
+$carousel-indicator-active-bg:                $white !default
+$carousel-indicator-border-color:             $white !default
+
+$carousel-caption-color:                      $white !default
+
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default
+$screen-sm-min:              $screen-sm !default
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default
+$screen-md-min:              $screen-md !default
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default
+$screen-lg-min:              $screen-lg !default
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default
+$screen-sm-max:              ($screen-md-min - 1) !default
+$screen-md-max:              ($screen-lg-min - 1) !default
+

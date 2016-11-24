@@ -13,7 +13,7 @@ require('./bootstrap');
  * the application, or feel free to tweak this setup for your needs.
  */
 
-import NProgress from 'vue-nprogress';
+//import NProgress from 'vue-nprogress';
 
 Vue.component('vue-editor', function (resolve) {
     require(['./components/Editor.vue'], resolve)
@@ -21,7 +21,15 @@ Vue.component('vue-editor', function (resolve) {
 Vue.component('vue-message', function (resolve) {
     require(['./components/Message.vue'], resolve)
 });
-
+Vue.component('vue-slider', function (resolve) {
+    require(['./components/Slider.vue'], resolve)
+});
+Vue.component('vue-carousel', function (resolve) {
+    require(['./components/Carousel.vue'], resolve)
+});
+Vue.component('vue-background', function (resolve) {
+    require(['./components/Background.vue'], resolve)
+});
 
 //Vue.use(NProgress);
 //const nprogress = new NProgress({ parent: '.nprogress-container' })
