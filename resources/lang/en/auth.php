@@ -18,5 +18,9 @@ return [
     'login' => 'Login',
     'logout' => 'Logout',
     'register' => 'Register',
-
+    'userlogin' => 'User Login',
+    'forgot' => 'Forgot your password?',
+    'reset' => 'Reset Password',
+    'sendreset' => 'Send Reset Link',
+    'sent' => 'We have e-mailed your password reset link!',
 ];

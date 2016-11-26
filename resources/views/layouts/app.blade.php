@@ -60,6 +60,11 @@
         <section class="app-main">
             @yield('content')
         </section>
+        <div class="messages">
+            {{--@if(session('status'))--}}
+                <vue-message type="success" direction="down" duration="0" message="{{ trans('auth.sent') }}" ></vue-message>
+            {{--@endif--}}
+        </div>
     </div>
     <!-- Scripts -->
     <script src={{ elixir("js/app.js") }}></script>

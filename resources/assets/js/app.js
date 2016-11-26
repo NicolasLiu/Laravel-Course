@@ -30,6 +30,9 @@ Vue.component('vue-carousel', function (resolve) {
 Vue.component('vue-background', function (resolve) {
     require(['./components/Background.vue'], resolve)
 });
+Vue.component('vue-switch', function (resolve) {
+    require(['./components/Switch.vue'], resolve)
+});
 
 //Vue.use(NProgress);
 //const nprogress = new NProgress({ parent: '.nprogress-container' })

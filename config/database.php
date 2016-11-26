@@ -78,6 +78,17 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => env('MANGO_DB_HOST', 'localhost'),
+            'port'     => env('MANGO_DB_PORT', 27017),
+            'database' => env('MANGO_DB_DATABASE'),
+            'username' => env('MANGO_DB_USERNAME'),
+            'password' => env('MANGO_DB_PASSWORD'),
+            'options' => [
+                'database' => 'admin' // sets the authentication database required by mongo 3
+            ]
+        ],
 
     ],
 

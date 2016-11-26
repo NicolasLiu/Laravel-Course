@@ -45,8 +45,7 @@ import $ from '../utils/NodeList.js'
     data () {
       return {
         indicator: [],
-        index: 0,
-        isAnimating: false
+        index: 0
       }
     },
     watch: {
@@ -56,8 +55,7 @@ import $ from '../utils/NodeList.js'
     },
     methods: {
       indicatorClick(index) {
-        if (this.isAnimating || this.index === index) return
-        this.isAnimating = true
+        if (this.index === index) return
         this.index = index
       },
       slide (direction, next, prev) {
@@ -71,17 +69,14 @@ import $ from '../utils/NodeList.js'
         $([$slider[prev], selected]).addClass(direction).on('transitionend', () => {
           $slider.off('transitionend').className = 'item'
           $(selected).addClass('active')
-          this.isAnimating = false
         })
       },
       next() {
-        if (!this.$el || this.isAnimating) { return false }
-        this.isAnimating = true
+        if (!this.$el) { return }
         this.index + 1 < $('.item', this.$el).length ? this.index += 1 : this.index = 0
       },
       prev() {
-        if (!this.$el || this.isAnimating) { return false }
-        this.isAnimating = true
+        if (!this.$el) { return }
         this.index === 0 ? this.index = $('.item', this.$el).length - 1 : this.index -= 1
       },
       toggleInterval (val) {
