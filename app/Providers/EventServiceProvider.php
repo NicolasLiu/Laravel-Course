@@ -16,9 +16,6 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\LoginSuccessEvent' => [
             'App\Listeners\LoginSuccessEventListener',
         ],
-        'App\Mods\Teamwork\Events\VisitEvent' => [
-            'App\Mods\Teamwork\Listeners\VisitEventListener',
-        ],
     ];
 
     /**

@@ -33,6 +33,12 @@ Vue.component('vue-background', function (resolve) {
 Vue.component('vue-switch', function (resolve) {
     require(['./components/Switch.vue'], resolve)
 });
+Vue.component('vue-dropdown', function (resolve) {
+    require(['./components/Dropdown.vue'], resolve)
+});
+Vue.component('vue-avatar', function (resolve) {
+    require(['./components/Avatar.vue'], resolve)
+});
 
 //Vue.use(NProgress);
 //const nprogress = new NProgress({ parent: '.nprogress-container' })

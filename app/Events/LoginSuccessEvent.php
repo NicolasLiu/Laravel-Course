@@ -14,8 +14,6 @@ use Carbon\Carbon;
 
 class LoginSuccessEvent extends Event
 {
-    use InteractsWithSockets, SerializesModels;
-
     public $ip;
     public $time;
     public $secure;

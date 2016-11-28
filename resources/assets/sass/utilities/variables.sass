@@ -34,13 +34,27 @@ $size-3: 28px !default
 $size-4: 24px !default
 $size-5: 18px !default
 $size-6: 14px !default
-
 $size-7: 11px !default
+
+// Typography
+$family-primary: $family-sans-serif !default
+$family-code: $family-monospace !default
+
+$size-small: $size-7 !default
+$size-normal: $size-6 !default
+$size-medium: $size-5 !default
+$size-large: $size-3 !default
+$size-huge: $size-1 !default
 
 $weight-normal: 400 !default
 $weight-bold: 700 !default
 $weight-title-normal: 400 !default
 $weight-title-bold: 500 !default
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($size-normal * $line-height-base)) !default // ~20px
 
 // Miscellaneous
 $easing: ease-out !default
@@ -111,15 +125,7 @@ $link-hover-border: $grey-darker !default
 $link-active: $grey-darker !default
 $link-active-border: $grey-darker !default
 
-// Typography
-$family-primary: $family-sans-serif !default
-$family-code: $family-monospace !default
 
-$size-small: $size-7 !default
-$size-normal: $size-6 !default
-$size-medium: $size-5 !default
-$size-large: $size-3 !default
-$size-huge: $size-1 !default
 
 ////////////////////////////////////////////////
 ////////////////////////////////////////////////
@@ -128,6 +134,8 @@ $size-huge: $size-1 !default
 $colors: (white: ($white, $black), black: ($black, $white), light: ($light, $light-invert), dark: ($dark, $dark-invert), primary: ($primary, $primary-invert), info: ($info, $info-invert), success: ($success, $success-invert), warning: ($warning, $warning-invert), danger: ($danger, $danger-invert)) !default
 
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 !default
+
+///////////////////////////////////////////////////////////////////////////////
 
 //Carousel
 
@@ -179,4 +187,63 @@ $screen-lg-desktop:          $screen-lg-min !default
 $screen-xs-max:              ($screen-sm-min - 1) !default
 $screen-sm-max:              ($screen-md-min - 1) !default
 $screen-md-max:              ($screen-lg-min - 1) !default
+
+
+
+$zindex-navbar:            1000 !default
+$zindex-dropdown:          1000 !default
+$zindex-popover:           1060 !default
+$zindex-tooltip:           1070 !default
+$zindex-navbar-fixed:      1030 !default
+$zindex-modal-background:  1040 !default
+$zindex-modal:             1050 !default
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color:    #fff !default
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:       $primary !default
+
+//** Width of the `border` for generating carets that indicate dropdowns.
+$caret-width-base:          4px !default
+//** Carets increase slightly in size for larger components.
+$caret-width-large:         5px !default
+//** Background for the dropdown menu.
+$dropdown-bg:                    #fff !default
+//** Dropdown menu `border-color`.
+$dropdown-border:                rgba(0,0,0,.15) !default
+//** Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border:       #ccc !default
+//** Divider color for between dropdown items.
+$dropdown-divider-bg:            #e5e5e5 !default
+
+//** Dropdown link text color.
+$dropdown-link-color:            $grey-dark !default
+//** Hover color for dropdown links.
+$dropdown-link-hover-color:      darken($grey-dark, 5%) !default
+//** Hover background for dropdown links.
+$dropdown-link-hover-bg:         #f5f5f5 !default
+
+//** Active dropdown menu item text color.
+$dropdown-link-active-color:     $component-active-color !default
+//** Active dropdown menu item background color.
+$dropdown-link-active-bg:        $component-active-bg !default
+
+//** Disabled dropdown menu item background color.
+$dropdown-link-disabled-color:   $grey-light !default
+
+//** Text color for headers within dropdown menus.
+$dropdown-header-color:          $grey-light !default
+
+//** Deprecated `$dropdown-caret-color` as of v3.1.0
+$dropdown-caret-color:           #000 !default
+
+
+$grid-float-breakpoint:     $screen-sm-min !default
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default
+
 

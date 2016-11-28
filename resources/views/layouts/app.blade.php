@@ -35,11 +35,20 @@
                         <div class="nav-right is-flex">
                             @if(Auth::check())
                                 <div class="nav-item">
-                                    <div class="is-brand">
-                                        <a class="button is-white is-medium" href="{{ url('/logout') }}">
-                                            @lang('auth.logout')
-                                        </a>
-                                    </div>
+                                    <vue-dropdown>
+                                        <div slot="button" class="dropdown-toggle button is-white is-medium">
+                                            <vue-avatar username="123" v-bind:size="40" src="userpic.png"></vue-avatar>
+                                            <i class="fa fa-angle-down fa-2x" style="margin-left: 10px"></i>
+                                        </div>
+                                        <li>
+                                            <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                @lang('auth.logout')
+                                            </a>
+                                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </vue-dropdown>
                                 </div>
                             @else
                                 <div class="nav-item">
@@ -62,7 +71,7 @@
         </section>
         <div class="messages">
             {{--@if(session('status'))--}}
-                <vue-message type="success" direction="down" duration="0" message="{{ trans('auth.sent') }}" ></vue-message>
+                {{--<vue-message type="success" direction="down" duration="0" message="{{ trans('auth.sent') }}" ></vue-message>--}}
             {{--@endif--}}
         </div>
     </div>
