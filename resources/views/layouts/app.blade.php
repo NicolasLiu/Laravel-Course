@@ -23,10 +23,18 @@
                 <div class="hero-head">
                     <nav class="nav">
                         <div class="nav-left">
+                            @if(Auth::check())
+                                <div class="nav-item">
+                                    <div class="button is-white is-medium">
+                                        <i class="fa fa-bars fa-2x"></i>
+                                    </div>
+
+                                </div>
+                            @endif
                         </div>
                         <div class="nav-center">
                             <div class="nav-item">
-                                <a class="button is-white is-medium" href="{{ url('/') }}">
+                                <a class="button is-white is-medium" href="{{ url('/home') }}">
                                     {{ config('app.name', 'Laravel') }}
                                 </a>
                             </div>
@@ -40,6 +48,12 @@
                                             <vue-avatar username="123" v-bind:size="40" src="userpic.png"></vue-avatar>
                                             <i class="fa fa-angle-down fa-2x" style="margin-left: 10px"></i>
                                         </div>
+                                        <li>
+                                            <a href="{{ url('/user') }}">
+                                                @lang('user.profile')
+                                            </a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
                                         <li>
                                             <a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                 @lang('auth.logout')

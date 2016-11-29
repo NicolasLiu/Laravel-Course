@@ -13,11 +13,25 @@ class Log extends Moloquent
     protected $connection = 'mongodb';
     protected $dates = ['deleted_at'];
 
-    public $type;
 
-    public function __construct($type)
+    public function __construct()
     {
-        $this->type = $type;
+        $this->type = $this->name();
         parent::__construct();
+    }
+
+    public static function name()
+    {
+        return 'App\Logs';
+    }
+
+    public static function nameKey()
+    {
+        return '_name';
+    }
+
+    public static function all($columns = ['*'])
+    {
+        return static::where(static::nameKey(), '>=', static::name())->get($columns);
     }
 }

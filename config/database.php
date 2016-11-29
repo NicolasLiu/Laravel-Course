@@ -86,7 +86,7 @@ return [
             'username' => env('MANGO_DB_USERNAME'),
             'password' => env('MANGO_DB_PASSWORD'),
             'options' => [
-                'database' => 'admin' // sets the authentication database required by mongo 3
+                'database' => 'laravel' // sets the authentication database required by mongo 3
             ]
         ],
 

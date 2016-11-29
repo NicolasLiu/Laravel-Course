@@ -39,7 +39,9 @@ Vue.component('vue-dropdown', function (resolve) {
 Vue.component('vue-avatar', function (resolve) {
     require(['./components/Avatar.vue'], resolve)
 });
-
+Vue.component('vue-expanding', function (resolve) {
+    require(['./components/Expanding.vue'], resolve)
+});
 //Vue.use(NProgress);
 //const nprogress = new NProgress({ parent: '.nprogress-container' })
 

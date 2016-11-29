@@ -2,7 +2,7 @@
 
 namespace App\Events;
 
-use App\User;
+use App\Users\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -11,32 +11,30 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use \Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Logs\LoginSuccess;
 
 class LoginSuccessEvent extends Event
 {
-    public $ip;
-    public $time;
-    public $secure;
-    public $user;
 
     /**
      * Create a new event instance.
      * @param \Illuminate\Http\Request
-     * @param \App\User
+     * @param \App\Users\User
      * @return void
      */
     public function __construct(Request $request, User $user)
     {
-        $this->ip = $request->getClientIp();
-        $this->time = Carbon::now();
-        $this->secure = $request->isSecure();
-        $this->user = $user;
+        $this->attributes['ip'] = $request->getClientIp();
+        $this->attributes['time'] = Carbon::now();
+        $this->attributes['secure'] = $request->isSecure();
+        $this->attributes['user'] = $user->id;
 
     }
 
-    public function name()
+
+    protected function getLog()
     {
-        return 'App\Events\LoginSuccess';
+        return new LoginSuccess();
     }
 
     /**

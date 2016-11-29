@@ -5,7 +5,6 @@ namespace App\Listeners;
 use App\Events\LoginSuccessEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Logs\Log;
 
 class LoginSuccessEventListener implements ShouldQueue
 {
@@ -27,12 +26,6 @@ class LoginSuccessEventListener implements ShouldQueue
      */
     public function handle(LoginSuccessEvent $event)
     {
-        $log = new Log($event->name());
-        $log->login_ip = $event->ip;
-        $log->login_secure = $event->secure;
-        $log->login_time = $event->time;
-        $log->login_user = $event->user->id;
-        $log->save();
-
+        $event->log();
     }
 }
