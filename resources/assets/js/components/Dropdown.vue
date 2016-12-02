@@ -6,16 +6,15 @@
                 <span class="caret"></span>
             </a>
         </slot>
-        <slot name="dropdown-menu">
-            <ul v-else class="dropdown-menu">
-                <slot></slot>
-            </ul>
-        </slot>
+        <ul class="dropdown-menu">
+            <slot></slot>
+        </ul>
+
     </li>
     <div v-else ref="dropdown" :class="classes">
         <slot name="before"></slot>
         <slot name="button">
-            <button type="button" class="btn btn-{{type}} dropdown-toggle" @keyup.esc="show = false" :disabled="disabled">
+            <button type="button" :class="buttonClassObject" @keyup.esc="show = false" :disabled="disabled">
                 {{ text }}
                 <span class="caret"></span>
             </button>
@@ -55,6 +54,15 @@ export default {
     }
   },
   computed: {
+    buttonClassObject () {
+      const { type } = this
+      var rtn = {
+        'button': true,
+        'dropdown-toggle': true
+      }
+      rtn['is-'+type] = type
+      return rtn
+    },
     classes () {
       return [{open: this.show, disabled: this.disabled}, this.class, this.isLi ? 'dropdown' : this.inInput ? 'input-group-btn': 'btn-group']
     },

@@ -25,7 +25,7 @@
                         <div class="nav-left">
                             @if(Auth::check())
                                 <div class="nav-item">
-                                    <div class="button is-white is-medium">
+                                    <div v-on:click="showSidebar" class="button is-white is-medium">
                                         <i class="fa fa-bars fa-2x"></i>
                                     </div>
 
@@ -80,6 +80,7 @@
                     </nav>
                 </div>
             </section>
+        <vue-aside placement="left" header="Title" :width="300"></vue-aside>
         <section class="app-main">
             @yield('content')
         </section>

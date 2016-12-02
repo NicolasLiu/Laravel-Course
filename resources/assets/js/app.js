@@ -42,10 +42,19 @@ Vue.component('vue-avatar', function (resolve) {
 Vue.component('vue-expanding', function (resolve) {
     require(['./components/Expanding.vue'], resolve)
 });
+Vue.component('vue-aside', function (resolve) {
+    require(['./components/Aside.vue'], resolve)
+});
 //Vue.use(NProgress);
 //const nprogress = new NProgress({ parent: '.nprogress-container' })
 
+
 const app = new Vue({
     //nprogress,
-    el: '#app'
+    el: '#app',
+    methods: {
+        showSidebar () {
+            this.$emit('showaside');
+        }
+    }
 });
