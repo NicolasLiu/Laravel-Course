@@ -1,5 +1,9 @@
 <template>
-<textarea v-bind:id="id" v-bind:name="id"></textarea>
+    <div>
+        <textarea v-bind:id="id" v-bind:name="id"></textarea>
+        <input type="hidden" v-bind:name="format" value="markdown">
+    </div>
+
 
 </template>
 
@@ -8,11 +12,18 @@ import SimpleMDE from 'simplemde';
 
 export default {
   props: {
-    id: String,
+    id: {
+      type: String,
+      required: true
+    },
     placeholder: String,
-
+    content: String,
   },
-
+  data () {
+    return {
+      format: this.id+"_format"
+    }
+  },
   mounted () {
     if(!window.hljs) {
         window.hljs = require('../highlight.min.js');
@@ -25,6 +36,7 @@ export default {
             uniqueId: this.id,
             delay: 1000,
         },
+        initialValue: this.content,
         hideIcons: ["guide"],
         placeholder: this.placeholder,
         spellChecker: false,
