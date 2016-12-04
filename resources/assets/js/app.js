@@ -45,6 +45,9 @@ Vue.component('vue-expanding', function (resolve) {
 Vue.component('vue-aside', function (resolve) {
     require(['./components/Aside.vue'], resolve)
 });
+Vue.component('vue-markdown-editor', function (resolve) {
+    require(['./components/MarkdownEditor.vue'], resolve)
+});
 //Vue.use(NProgress);
 //const nprogress = new NProgress({ parent: '.nprogress-container' })
 
