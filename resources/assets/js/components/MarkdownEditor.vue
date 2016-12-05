@@ -1,6 +1,6 @@
 <template>
     <div>
-        <textarea v-bind:id="id" v-bind:name="id"></textarea>
+        <textarea v-bind:id="editor" v-bind:name="id"></textarea>
         <input type="hidden" v-bind:name="format" value="markdown">
     </div>
 
@@ -21,7 +21,8 @@ export default {
   },
   data () {
     return {
-      format: this.id+"_format"
+      editor: this.id + "_editor",
+      format: this.id + "_format"
     }
   },
   mounted () {
@@ -29,7 +30,7 @@ export default {
         window.hljs = require('../highlight.min.js');
     }
     var simplemde = new SimpleMDE({
-        element: document.getElementById(this.id),
+        element: document.getElementById(this.editor),
         autoDownloadFontAwesome: false,
         autosave: {
             enabled: true,

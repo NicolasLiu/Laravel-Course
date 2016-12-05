@@ -1,7 +1,10 @@
 <template>
-    <div class="quill-editor">
-        <slot></slot>
+    <div>
+        <div ref="quill" class="quill-editor"></div>
+        <input type="hidden" v-bind:name="editor" v-bind:value="editorcontent">
+        <input type="hidden" v-bind:name="format" value="richtext">
     </div>
+
 </template>
 
 <script>
@@ -30,6 +33,14 @@ var toolbarOptions = [
 export default {
 
   props: {
+    id: {
+      type: String,
+      required: true
+    },
+    content: {
+      type: String,
+      default: null
+    },
     options: {
       type: Object,
       default: () => ({
@@ -45,17 +56,27 @@ export default {
   data () {
     return {
       focused: this.autofocus,
-      editor: null
+      quill: null,
+      editor: this.id + "_editor",
+      format: this.id + "_format"
     }
   },
-
+  computed: {
+    editorcontent: function () {
+      if(this.quill == undefined) {
+        return "";
+      }
+      return JSON.stringify(this.quill.getContents());
+    }
+  },
   mounted () {
-    this.editor = new Quill(this.$el, this.options)
+    this.quill = new Quill(this.$refs.quill, this.options);
+    this.quill.setContents(JSON.parse(this.content));
   },
 
   watch: {
     focused (val) {
-      this.editor[val ? 'focus' : 'blur']()
+      this.quill[val ? 'focus' : 'blur']()
     }
   }
 
@@ -64,4 +85,6 @@ export default {
 
 <style lang="stylus">
 @import '~quill/assets/snow'
+.ql-container.ql-snow
+  height: 300px
 </style>
