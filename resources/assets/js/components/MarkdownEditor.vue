@@ -27,7 +27,7 @@ export default {
   },
   mounted () {
     if(!window.hljs) {
-        window.hljs = require('../highlight.min.js');
+        window.hljs = require('highlight.js');
     }
     var simplemde = new SimpleMDE({
         element: document.getElementById(this.editor),

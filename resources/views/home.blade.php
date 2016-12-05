@@ -14,6 +14,13 @@
         </div>
         <div class="box">
             <vue-markdown-editor id="example2"></vue-markdown-editor>
+            <vue-markdown-reader content="# 11111111
+``` c
+int main()
+{
+	return 0;
+}
+```"></vue-markdown-reader>
         </div>
     </div>
 
