@@ -20,8 +20,8 @@ var toolbarOptions = [
   [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
   //[{ 'direction': 'rtl' }],                         // text direction
 
-  //[{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  //[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
   [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
   //[{ 'font': [] }],
@@ -41,14 +41,9 @@ export default {
       type: String,
       default: null
     },
-    options: {
-      type: Object,
-      default: () => ({
-        modules: {
-          toolbar: toolbarOptions
-        },
-        theme : 'snow'
-      })
+    readonly: {
+      type: Boolean,
+      default: false
     },
     autofocus: Boolean
   },
@@ -62,6 +57,22 @@ export default {
     }
   },
   computed: {
+    options: function () {
+      if(this.readonly == true) {
+        return {
+          modules: {
+            toolbar: null
+          },
+          readOnly: true
+        };
+      }
+      return {
+        modules: {
+          toolbar: toolbarOptions
+        },
+        theme : 'snow',
+      };
+    },
     editorcontent: function () {
       if(this.quill == undefined) {
         return "";
